@@ -44,7 +44,7 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 p { margin: 0 0 1em; }
-h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.5; }
+h1, h2, h3, h4 { margin: 0; font-weight: 500; line-height: 1.5; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 :focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
 
@@ -220,15 +220,51 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .concept__grid { grid-template-columns: 1fr; gap: 28px; }
 }
 
-/* ---------- 耳ツボダイエットとは ---------- */
-.method__grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
+/* ---------- 耳ツボダイエットの仕組み ---------- */
+/* 「流れ」（丸数字＋破線タイムライン）と区別するため、罫線＋大きな数字の構成にする */
+.how__list { display: grid; gap: 40px; }
+.how__item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.how__num {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--rose-deep);
+  letter-spacing: .02em;
+}
+.how__body h3 { font-size: 19px; font-weight: 700; margin: 6px 0 10px; }
+.how__body p { font-size: 15px; color: var(--ink-soft); max-width: 42em; }
+.how__body p:last-child { margin-bottom: 0; }
+.how__body strong { font-weight: 700; color: var(--rose-deep); }
+.how__voices { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0 0 14px; }
+.how__voices li {
+  font-size: 14px;
+  padding: 6px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+}
+.how__detail { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: start; margin-top: 20px; }
 .method__media { margin: 0; }
 .method__media img { border-radius: var(--radius); }
 .method__media figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
-.method__effects-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.method__effects-title { font-size: 17px; font-weight: 700; margin: 0 0 12px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
 .effect-list li { padding: 10px 0; border-bottom: 1px dashed var(--rule); font-size: 14px; color: var(--ink-soft); }
 .effect-list li span { display: block; font-size: 16px; font-weight: 700; color: var(--ink); }
-@media (max-width: 767px) { .method__grid { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 767px) {
+  .how__list { gap: 32px; }
+  .how__item { grid-template-columns: 48px 1fr; gap: 12px; padding-top: 20px; }
+  .how__num { font-size: 30px; }
+  .how__body h3 { margin-top: 2px; }
+  .how__detail { grid-template-columns: 1fr; gap: 20px; }
+}
 
 /* ---------- 選ばれる理由 ---------- */
 .reasons { background: var(--bg-soft); }
