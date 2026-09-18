@@ -271,8 +271,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .reasons__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 40px; }
 .reason__media { aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radius); margin-bottom: 16px; }
 .reason__media img { width: 100%; height: 100%; object-fit: cover; }
-.reason__media--icon { display: grid; place-items: center; background: var(--bg-sand); }
-.reason__media--icon img { width: auto; height: 62%; object-fit: contain; }
 .reason h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
 .reason p { margin: 0; font-size: 15px; color: var(--ink-soft); }
 @media (max-width: 767px) { .reasons__grid { grid-template-columns: 1fr; gap: 36px; } }
