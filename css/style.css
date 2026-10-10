@@ -1,5 +1,5 @@
 /* =========================================================
-   VIJOY LP – mock 01
+   VIJOY LP – mock 02
    Palette: 白 × 淡いピンクベージュ × 金粒のゴールド。上品・ナチュラル。
    Type: Zen Kaku Gothic New（本文）/ Lora（英字・数字）
    ========================================================= */
@@ -76,9 +76,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   margin-bottom: 32px;
 }
 .section__title--left { text-align: left; }
-.section__title--left + p, .concept__body p { }
+.section__title--with-sub { margin-bottom: 8px; }
+.section__sub { text-align: center; font-size: 15px; font-weight: 700; color: var(--rose-deep); letter-spacing: .06em; margin-bottom: 32px; }
 .section__intro { max-width: var(--narrow); margin: 0 auto 40px; text-align: center; }
-.section__eyebrow + .section__title--left, .concept__body .section__eyebrow, .owner__body .section__eyebrow { text-align: left; }
+.section__eyebrow + .section__title--left, .owner__body .section__eyebrow { text-align: left; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -232,18 +233,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .empathy__closing { text-align: center; font-size: 18px; line-height: 2.1; }
 .empathy__closing strong { font-weight: 700; color: var(--rose-deep); }
 
-/* ---------- コンセプト ---------- */
-.concept { background: var(--bg-sand); }
-.concept__grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; }
-.concept__media img { border-radius: var(--radius); box-shadow: var(--shadow); }
-.concept__body .section__title { margin-bottom: 20px; }
-.concept__body strong { font-weight: 700; color: var(--rose-deep); }
-@media (max-width: 767px) {
-  .concept__grid { grid-template-columns: 1fr; gap: 28px; }
-}
-
 /* ---------- 耳ツボダイエットの仕組み ---------- */
 /* 「流れ」（丸数字＋破線タイムライン）と区別するため、罫線＋大きな数字の構成にする */
+.method__lead {
+  text-align: center;
+  font-family: var(--font-mincho);
+  font-size: clamp(19px, 2.4vw, 23px);
+  font-weight: 600;
+  line-height: 1.8;
+  margin: -12px 0 16px;
+}
+.method__lead strong { color: var(--rose-deep); }
 .how__list { display: grid; gap: 40px; }
 .how__item {
   display: grid;
@@ -295,6 +295,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .reasons__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 40px; }
 .reason__media { aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radius); margin-bottom: 16px; }
 .reason__media img { width: 100%; height: 100%; object-fit: cover; }
+.reason__media--top img { object-position: 50% 30%; }
 .reason h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
 .reason p { margin: 0; font-size: 15px; color: var(--ink-soft); }
 @media (max-width: 767px) { .reasons__grid { grid-template-columns: 1fr; gap: 36px; } }
@@ -303,46 +304,21 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .cta-band { padding: 56px 0; text-align: center; background: var(--white); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .cta-band__text { font-size: 18px; margin-bottom: 24px; }
 
-/* ---------- サポート内容 ---------- */
-.support { background: var(--bg); }
-.support__list { display: grid; gap: 12px; margin-bottom: 32px; }
-.support__list li {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px 18px;
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-}
-.support__icon {
-  flex: none;
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 0 4px rgba(193, 161, 101, .2);
-}
-.support__closing { text-align: center; font-size: 18px; margin: 0; }
-.support__closing strong { font-weight: 700; color: var(--rose-deep); }
-
-/* ---------- 初回カウンセリング ---------- */
-.counseling { background: var(--bg-soft); }
-.counseling .section__title { margin-bottom: 16px; }
-.counseling__meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 10px; margin-bottom: 28px; }
-.counseling__meta span {
-  font-size: 14px; padding: 4px 16px; border-radius: 999px;
-  border: 1px solid var(--rose); color: var(--rose-deep); background: var(--white);
-}
-.counseling__meta span:first-child { background: var(--rose-deep); border-color: var(--rose-deep); color: var(--white); font-weight: 700; }
-.counseling__list { counter-reset: c; display: grid; gap: 0; margin-bottom: 32px; background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); padding: 8px 22px; }
+/* ---------- 初回カウンセリング（流れ STEP3 内） ---------- */
+.counseling__list { counter-reset: c; display: grid; gap: 0; margin-top: 12px; background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); padding: 4px 18px; }
 .counseling__list li {
   counter-increment: c;
   position: relative;
-  padding: 14px 0 14px 44px;
+  padding: 10px 0 10px 36px;
+  font-size: 15px;
+  color: var(--ink);
   border-bottom: 1px dashed var(--rule);
 }
 .counseling__list li:last-child { border-bottom: 0; }
 .counseling__list li::before {
   content: counter(c, decimal-leading-zero);
-  position: absolute; left: 0; top: 13px;
-  font-family: var(--font-en); font-style: italic; font-size: 18px; color: var(--rose-deep);
+  position: absolute; left: 0; top: 9px;
+  font-family: var(--font-en); font-style: italic; font-size: 16px; color: var(--rose-deep);
 }
 .counseling__promise {
   text-align: center;
@@ -355,7 +331,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .counseling__promise p:last-child { margin: 0; font-size: 15px; color: var(--ink-soft); }
 
 /* ---------- お客様の声 ---------- */
-.voice { background: var(--bg); }
+.voice { background: var(--bg-sand); }
 .voice__card {
   position: relative;
   padding: 40px 40px 32px;
@@ -389,7 +365,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .voice__card::before { font-size: 72px; left: 16px; top: -14px; }
 }
 
-/* ---------- 流れ ---------- */
+/* ---------- LINE登録からスタートまで ---------- */
+.flow { background: var(--bg); }
+.flow .counseling__promise { margin-top: 8px; }
+.flow__body strong { font-weight: 700; color: var(--ink); }
 .flow__list { display: grid; gap: 0; }
 .flow__step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; position: relative; padding-bottom: 36px; }
 .flow__step:not(:last-child)::before {
@@ -477,6 +456,28 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   scroll-margin-top: 80px;
 }
 .final-cta__title { font-size: clamp(22px, 3vw, 30px); font-weight: 500; margin-bottom: 16px; letter-spacing: .04em; }
+.final-cta__perks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 520px; margin: 8px auto 20px; }
+.final-cta__perks li {
+  padding: 10px 8px 10px 34px;
+  position: relative;
+  text-align: left;
+  font-size: 15px; font-weight: 700;
+  background: rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255, 255, 255, .35);
+  border-radius: var(--radius);
+}
+.final-cta__perks li::before {
+  content: ""; position: absolute; left: 12px; top: 50%;
+  width: 14px; height: 8px;
+  border-left: 2px solid var(--white); border-bottom: 2px solid var(--white);
+  transform: translateY(-75%) rotate(-45deg);
+}
+@media (max-width: 767px) {
+  .final-cta__perks { gap: 8px; }
+  .final-cta__perks li { font-size: 13px; padding: 10px 6px 10px 28px; letter-spacing: 0; }
+  .final-cta__perks li::before { left: 10px; width: 12px; height: 7px; }
+  .flow__body h3 small { display: block; margin: 2px 0 0; }
+}
 .final-cta__text { max-width: 560px; margin: 0 auto 28px; font-size: 15px; opacity: .95; }
 .final-cta .btn--line { box-shadow: 0 10px 30px rgba(0,0,0,.18); }
 .final-cta__or { font-size: 13px; margin: 28px 0 12px; opacity: .85; }

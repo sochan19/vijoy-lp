@@ -1,4 +1,4 @@
-// VIJOY LP – mock 01
+// VIJOY LP – mock 02
 (function () {
   // TODO(本番): LINE公式アカウントの友だち追加URL（https://lin.ee/xxxx）を設定
   var LINE_URL = "";
